@@ -14,7 +14,7 @@ namespace BA.Exo09
             {
                 bool isNbPremier = true;
                 int nbDiv = 0;
-                for(int diviseur = 1; diviseur < nbAnalyse; diviseur++)
+                for(int diviseur = 1; diviseur <= nbAnalyse; diviseur++)
                 {
                     if (nbAnalyse % diviseur == 0) nbDiv++;
                 }

@@ -6,17 +6,52 @@ namespace BA.Exo17
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Celcius c;
+            c.Temperature = 0;
+            Console.WriteLine($"{c.ToFahrenheit()}°F");
+            c = CustomConvert.ToCelcius(new Fahrenheit { Temperature = 13 });
+            Console.WriteLine($"{c.Temperature}°C");
         }
 
-        public struct Celsius
+    }
+    public struct Celcius
+    {
+        public double Temperature;
+
+        public Fahrenheit ToFahrenheit()
         {
-            public double Temperature;
+            Fahrenheit f;
+            f.Temperature = (Temperature * (9 / 5)) + 32 ;
+            return f;
+        }
+        public Fahrenheit ToFahrenheit(Celcius c)
+        {
+            Fahrenheit f;
+            f.Temperature = (c.Temperature * (9 / 5)) + 32;
+            return f;
+        }
+        public Fahrenheit ToFahrenheit(double tempCelcius)
+        {
+            Fahrenheit f;
+            f.Temperature = (tempCelcius * (9 / 5)) + 32;
+            return f;
+        }
+    }
+
+    public struct Fahrenheit
+    {
+        public double Temperature;
+
+        public Celcius ToCelcius()
+        {
+            return ToCelcius(Temperature);
         }
 
-        public struct Fahrenheit
+        public Celcius ToCelcius(double tempFahrenheit)
         {
-            public double Temperature;
+            Celcius c;
+            c.Temperature = (tempFahrenheit - 32) * (5 / 9);
+            return c;
         }
     }
 }

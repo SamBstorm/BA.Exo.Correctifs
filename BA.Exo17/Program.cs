@@ -44,7 +44,18 @@ namespace BA.Exo17
 
         public Celcius ToCelcius()
         {
-            return ToCelcius(Temperature);
+            return ToCelcius(Temperature);      //On se simplifie la tâche:
+                                                //vu qu'une méthode fait déjà la conversion,
+                                                //on l'utilise pour obtenir le comportement souhaité
+                                                //sur la valeur concernée.
+        }
+
+        public Celcius ToCelcius(Fahrenheit f)
+        {
+            return ToCelcius(f.Temperature);    //On se simplifie la tâche:
+                                                //vu qu'une méthode fait déjà la conversion,
+                                                //on l'utilise pour obtenir le comportement souhaité
+                                                //sur la valeur concernée.
         }
 
         public Celcius ToCelcius(double tempFahrenheit)
